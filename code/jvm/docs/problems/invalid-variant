@@ -1,0 +1,12 @@
+Invalid game variant.
+
+The game variant must be one of the following:
+ - "freestyle simple",
+ - "freestyle swap after 1st move",
+ - "renju",
+ - "caro",
+ - "omok",
+ - "ninuki-renju", or
+ - "pente".
+
+Please try again.

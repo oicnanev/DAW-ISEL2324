@@ -1,0 +1,4 @@
+{
+  "message": "No partner found yet. Retry-After header will be set to the number of seconds to wait for a partner",
+  "uri": "http://localhost:8080/api/checkmatch"
+}

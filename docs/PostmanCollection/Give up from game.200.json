@@ -1,0 +1,24 @@
+{
+  "id": 55,
+  "board": {
+    "size": 19,
+    "player1": {
+      "userId": 65,
+      "stone": "w",
+      "coords": null
+    },
+    "player2": {
+      "userId": 63,
+      "stone": "b",
+      "coords": null
+    }
+  },
+  "opening": "open",
+  "variant": "freestyle simple",
+  "currentPlayer": 2,
+  "player1": "Goncalo",
+  "player2": "gomoku-tester",
+  "gameState": "player1_won",
+  "startTime": 1699657477,
+  "lastUpdated": 1699666910
+}

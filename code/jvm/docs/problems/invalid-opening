@@ -1,0 +1,11 @@
+Invalid game opening.
+
+The game opening must be one of the following:
+ - "open",
+ - "swap",
+ - "swap2",
+ - "pro",
+ - "long_pro", or
+ - "soosorv" (for game variant renju only)
+
+ Please try again.

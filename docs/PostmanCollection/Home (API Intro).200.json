@@ -1,0 +1,10 @@
+{
+  "welcome": "Welcome to Gomoku API",
+  "description": "This API allows you to play Gomoku, a strategy board game for two players, also known as Five in a Row. The objective of the game is to form a row of five consecutive pieces, horizontally, vertically or diagonally.",
+  "usage": {
+    "rel": [
+      "collection"
+    ],
+    "href": "https://documenter.getpostman.com/view/24046057/2s9YRGyUc9"
+  }
+}

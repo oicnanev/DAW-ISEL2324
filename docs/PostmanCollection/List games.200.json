@@ -1,0 +1,18 @@
+{
+  "outputLobbyGameList": [
+    {
+      "variant": "freestyle simple",
+      "opening": "open",
+      "boardSize": 19,
+      "username": "Goncalo",
+      "rank": 0
+    },
+    {
+      "variant": "freestyle simple",
+      "opening": "open",
+      "boardSize": 19,
+      "username": "gomoku-tester",
+      "rank": 0
+    }
+  ]
+}

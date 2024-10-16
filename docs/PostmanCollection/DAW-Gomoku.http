@@ -1,0 +1,206 @@
+# DAW-Gomoku
+
+###
+# group: No auth requests
+# @name Home (API Intro)
+# Returns JSON with a welcome message and a link to this web page
+GET {{base_url}}
+
+<> ./Home (API Intro).200.json
+// localhost:8080/api
+
+###
+# group: No auth requests
+# @name System Info (API description)
+# Returns JSON Siren to describe the entities that are part of our API
+GET {{base_url}}/info
+
+<> ./System Info (API description).200.txt
+// {{base_url}}/info
+
+###
+# group: No auth requests
+# @name About (version and authors)
+# Returns the version number and the authors of the API
+GET {{base_url}}/about
+
+<> ./About (version and authors).200.json
+// {{base_url}}/about
+
+###
+# group: No auth requests
+# @name Gomoku Rules
+# Returns the Gomoku rules
+GET {{base_url}}/rules
+
+<> ./Gomoku Rules.200.json
+// {{base_url}}/rules
+
+###
+# group: No auth requests
+# @name User Rankings
+# Returns the user's rankings  
+# TODO: make pagination, query and links
+GET {{base_url}}{{stats}}
+
+<> ./User Rankings.200.json
+// {{base_url}}{{stats}}
+
+###
+# group: No auth requests
+# @name Create User
+# To create a user.
+# Require body with JSON, with the fields, "username" and "password".  
+# Password must be at least 8 character long, have and uppercase letter, a lowercase letter, a number and a symbol.
+# Can return the errors:  
+# \- user already exists
+# \- insecure password
+POST {{base_url}}{{create_user}}
+Content-Type: application/json
+
+{
+  "username": "gomoku-tester1",
+  "password": "5tr0n6-P455w0rd"
+}
+
+###
+# group: Auth token requests / User
+# @name Home user
+# To visit user's homepage
+GET {{base_url}}{{home_user}}
+Authorization: Bearer {{bearer-token}}
+
+<> ./Home user.200.json
+// {{base_url}}{{home_user}}
+<> ./Home user.200.json
+// {{base_url}}{{home_user}}
+
+###
+# group: Auth token requests / User
+# @name Logout
+# To logout the user
+# TODO: If the user have a game in looby, delete the game
+# TODO: If the user is currently playing a game, give victory by give up to the opponent
+POST {{base_url}}{{logout}}
+
+###
+# group: Auth token requests / User
+# @name Login
+# To login an existing user
+# Require body with fields "username" and "password"
+# On success returns a JSON with the field "token" to be used in subsequente requests
+# On failure returns the error "user or password are invalid"
+POST {{base_url}}{{login_user}}
+Content-Type: application/json
+
+{
+  "username": "gomoku-tester",
+  "password": "5tr0n6-P455w0rd"
+}
+
+<> ./Login.200.json
+// {{base_url}}{{login_user}}
+
+###
+# group: Auth token requests / Lobby
+# @name List games
+# To list all games created by other players in the lobby
+# TODO: for each game created in lobby, should show the game type (variant, opening and board size) and maybe the rank of the user who created the game (to prevent high ranking users to play with novices) -> Gives error creating the list
+# Returns a JSON body acordingly (no games in lobby or the list of game types / user rankings)
+GET {{base_url}}{{lobby}}
+
+<> ./List games.200.json
+// {{base_url}}{{lobby}}
+<> ./List games.200.json
+// {{base_url}}{{lobby}}
+
+###
+# group: Auth token requests / Lobby
+# @name Check status / partner
+# To check if the created game already have an opponent  
+# Response could be a redirect for the created game or a no opponent yet, ask again in x seconds
+GET {{base_url}}{{game_checkmatch}}
+
+<> ./Check created game status.200.json
+// {{base_url}}{{game_checkmatch}}
+
+###
+# group: Auth token requests / Lobby
+# @name Add a game
+# To add a game to the lobby and wait for opponent  
+# Requires body with fields "variant", "opening" and "boardSize"
+# On success returns JSON with the lobby game id  
+# On failure returns one of the following errors:
+# \- invalid variant  
+# \- invalid openning
+# \- invalid boardSize
+# \- variant {variant} does not support openning {openning} (TODO)
+# \- variant {variant} does not support the chosen board size (TODO)
+POST {{base_url}}{{lobby}}
+Content-Type: application/json
+
+{
+  "variant": "freestyle simple",
+  "opening": "open",
+  "boardSize": 19
+}
+
+<> ./Add a game.201.json
+// {{base_url}}{{lobby}}
+
+###
+# group: Auth token requests / Lobby
+# @name Delete created game
+# To delete a game created in the lobby
+# Automatic if user logout with a game created or if a user decides to play diffferent game
+DELETE {{base_url}}{{lobby}}/6
+
+<> ./Delete created game.200.txt
+// {{base_url}}{{lobby}}/6
+
+###
+# group: Auth token requests / Lobby
+# @name Join existing game
+# Be the opponent to a created game in the lobby
+# TODO: implement
+POST {{base_url}}{{game_join}}/8
+
+###
+# group: Auth token requests / Game
+# @name Play move
+# To play a game move  
+# Require JSON with the fields "x" and "y" that represents a coordinate in the game board starting from (0, 0) until (boardSize - 1, boardSize - 1)  
+# On success redirects to view game, and show victory if its the case (TODO)  
+# On failure return error "invalid move" (TODO)
+POST {{base_url}}{{game_id}}
+Content-Type: application/json
+
+{
+  "x": 0,
+  "y": 0
+}
+
+<> ./Play move.201.json
+// {{base_url}}{{game_id}}57
+<> ./Play move.201.json
+// {{base_url}}{{game_id}}57
+
+###
+# group: Auth token requests / Game
+# @name View game
+# To view the game and if its his turn to play
+# Returns a game representation with all the moves until the moment and the player who should make the next turn (TODO)
+GET {{base_url}}{{game_id}}55
+
+<> ./View game.200.json
+// {{base_url}}{{game_id}}55
+
+###
+# group: Auth token requests / Game
+# @name Give up from game
+# To give up from the game  
+# (Automatically the opponent wins) (TODO)
+POST {{base_url}}{{game_id}}/giveup
+
+<> ./Give up from game.200.json
+// {{base_url}}{{game}}/giveup

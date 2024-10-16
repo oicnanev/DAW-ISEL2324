@@ -1,0 +1,244 @@
+{
+    "class_": [
+        "gomoku"
+    ],
+    "properties": {
+        "user": "User",
+        "game": "Game",
+        "rankings": "Rankings"
+    },
+    "entities": [
+        {
+            "class_": [
+                "Game"
+            ],
+            "properties": {
+                "id": 1,
+                "board": [
+                    "[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"],[\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\",\"+\"]"
+                ],
+                "gameType": 2,
+                "currentPlayer": 1,
+                "player1": "123",
+                "player2": "321",
+                "state": "in-progress",
+                "startTime": 10000,
+                "updated": 10010
+            },
+            "links": [
+                {
+                    "rel": [
+                        "self"
+                    ],
+                    "href": "http://localhost:8080/api/game"
+                },
+                {
+                    "rel": [
+                        "lobby"
+                    ],
+                    "href": "http://localhost:8080/api/lobby"
+                },
+                {
+                    "rel": [
+                        "joingame"
+                    ],
+                    "href": "http://localhost:8080/api/joingame"
+                },
+                {
+                    "rel": [
+                        "checkmatch"
+                    ],
+                    "href": "http://localhost:8080/api/checkmatch"
+                },
+                {
+                    "rel": [
+                        "game"
+                    ],
+                    "href": "http://localhost:8080/api/game/{id}"
+                }
+            ]
+        },
+        {
+            "class_": [
+                "User",
+                "collection"
+            ],
+            "properties": {
+                "id": 1,
+                "username": "John Smith",
+                "passwordValidationInfo": "{token}"
+            },
+            "links": [
+                {
+                    "rel": [
+                        "self"
+                    ],
+                    "href": "http://localhost:8080/api/users"
+                },
+                {
+                    "rel": [
+                        "login"
+                    ],
+                    "href": "http://localhost:8080/api/users/token"
+                },
+                {
+                    "rel": [
+                        "logout"
+                    ],
+                    "href": "http://localhost:8080/api/logout"
+                },
+                {
+                    "rel": [
+                        "home"
+                    ],
+                    "href": "http://localhost:8080/api/me"
+                },
+                {
+                    "rel": [
+                        "getUserByID"
+                    ],
+                    "href": "http://localhost:8080/api/users/{id}"
+                }
+            ]
+        },
+        {
+            "class_": [
+                "Rankings"
+            ],
+            "properties": {
+                "rankings": [
+                    "{    \"class\": [\"Ranking\"],    \"properties\": {        \"username\": \"John Smith\",        \"games\": 111,        \"victories\": 100,        \"defeats\": 10,        \"draws\": 1,        \"rank\": 301    }}",
+                    "{    \"class\": [\"Ranking\"],    \"properties\": {        \"username\": \"Anne Chow\",        \"games\": 91,        \"victories\": 91,        \"defeats\": 0,        \"draws\": 0,        \"rank\": 273    }}"
+                ]
+            },
+            "links": [
+                {
+                    "rel": [
+                        "self"
+                    ],
+                    "href": "http://localhost:8080/api/rankings"
+                },
+                {
+                    "rel": [
+                        "rankings"
+                    ],
+                    "href": "http://localhost:8080/api/rankings"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "register-user",
+            "title": "Register",
+            "method": "POST",
+            "href": "http://localhost:8080/api/users",
+            "type": "application/json",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "text",
+                    "value": null
+                },
+                {
+                    "name": "password",
+                    "type": "password",
+                    "value": "must have at least 8 characters, 1 digit, 1 uppercase letter, 1 lowercase letter and 1 special character"
+                }
+            ]
+        },
+        {
+            "name": "login",
+            "title": "Login",
+            "method": "POST",
+            "href": "http://localhost:8080/api/users/token",
+            "type": "application/json",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "text",
+                    "value": null
+                },
+                {
+                    "name": "password",
+                    "type": "password",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "name": "logout",
+            "title": "Logout",
+            "method": "POST",
+            "href": "http://localhost:8080/api/logout",
+            "type": null,
+            "fields": null
+        },
+        {
+            "name": "user-home",
+            "title": "Home",
+            "method": "GET",
+            "href": "http://localhost:8080/api/me",
+            "type": "application/json",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "application/json",
+                    "value": null
+                },
+                {
+                    "name": "stats",
+                    "type": "application/json",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "name": "game",
+            "title": "Play game",
+            "method": "POST",
+            "href": "http://localhost:8080/api/game",
+            "type": "application/json",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "hidden",
+                    "value": null
+                },
+                {
+                    "name": "password",
+                    "type": "hidden",
+                    "value": null
+                },
+                {
+                    "name": "variant",
+                    "type": "text",
+                    "value": null
+                },
+                {
+                    "name": "opening",
+                    "type": "text",
+                    "value": null
+                },
+                {
+                    "name": "board_size",
+                    "type": "numeric",
+                    "value": null
+                },
+                {
+                    "name": "opponent",
+                    "type": "numeric",
+                    "value": null
+                }
+            ]
+        }
+    ],
+    "links": [
+        {
+            "rel": [
+                "self"
+            ],
+            "href": "http://localhost:8080/api"
+        }
+    ]
+}

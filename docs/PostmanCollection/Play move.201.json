@@ -1,0 +1,76 @@
+{
+  "id": 57,
+  "board": {
+    "size": 19,
+    "player1": {
+      "userId": 63,
+      "stone": "b",
+      "coords": [
+        {
+          "timestamp": 1699721455,
+          "x": 0,
+          "y": 1
+        },
+        {
+          "timestamp": 1699721538,
+          "x": 0,
+          "y": 2
+        },
+        {
+          "timestamp": 1699721555,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "timestamp": 1699721588,
+          "x": 0,
+          "y": 4
+        },
+        {
+          "timestamp": 1699721617,
+          "x": 0,
+          "y": 5
+        }
+      ]
+    },
+    "player2": {
+      "userId": 67,
+      "stone": "w",
+      "coords": [
+        {
+          "timestamp": 1699721085,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "timestamp": 1699721507,
+          "x": 1,
+          "y": 1
+        },
+        {
+          "timestamp": 1699721548,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "timestamp": 1699721558,
+          "x": 3,
+          "y": 3
+        },
+        {
+          "timestamp": 1699721600,
+          "x": 4,
+          "y": 4
+        }
+      ]
+    }
+  },
+  "opening": "open",
+  "variant": "freestyle simple",
+  "currentPlayer": 2,
+  "player1": "gomoku-tester",
+  "player2": "Password99!",
+  "gameState": "player1_won",
+  "startTime": 1699719248,
+  "lastUpdated": 1699721617
+}
